@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Landing.scss';
 
 const Landing = () => {
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
   const onChange = (e) => {
     setEmail(e.target.value);
   };
@@ -11,7 +13,7 @@ const Landing = () => {
     if (email === '') {
       console.log('enter your email');
     } else {
-      console.log(email);
+      navigate('/movies');
     }
   };
   return (
