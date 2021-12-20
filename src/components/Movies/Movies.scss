@@ -1,0 +1,15 @@
+section {
+  margin: auto;
+  max-width: 1900px;
+  h1 {
+    font-size: 2rem;
+    color: #fcf7f8;
+  }
+}
+
+.movies-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
