@@ -2,12 +2,14 @@ import React from 'react';
 import './MovieItem.scss';
 
 const MovieItem = ({ movie, genre }) => {
-  const getId = genre.map((genre) =>
-    movie.genre_ids.filter((id) =>
-      id === genre.id ? <p>{genre.name}</p> : null
-    )
-  );
-  //console.log(getId);
+  const getName = (arr) => {
+    const genreId = arr.map((id) => {
+      const genreName = genre.filter((genreElement) => genreElement.id === id);
+      return genreName[0].name;
+    });
+    console.log(genreId.join(', '));
+    return genreId.join(', ');
+  };
   return (
     <div className='movie-card'>
       <img
@@ -15,12 +17,7 @@ const MovieItem = ({ movie, genre }) => {
         alt={movie.title}
       />
       <p className='movie-title'>{movie.title}</p>
-      {getId}
-      {/* {genre[0].id === movie.genre_id ? (
-        <p className='movie-genre'>{genre[0].name}</p>
-      ) : (
-        <p className='movie-genre'>Nothing</p>
-      )} */}
+      <p className='movie-genre'>{getName(movie.genre_ids)}</p>
     </div>
   );
 };
