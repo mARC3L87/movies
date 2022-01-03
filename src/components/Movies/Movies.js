@@ -44,8 +44,8 @@ const Movies = () => {
     <section>
       <Link to='/'>Landing</Link>
       <h1>Now Playing</h1>
-      <button onClick={() => next()}>Next</button>
       <button onClick={() => prev()}>Prev</button>
+      <button onClick={() => next()}>Next</button>
       <div
         className='movies-box'
         style={{
