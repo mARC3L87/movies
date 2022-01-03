@@ -1,17 +1,17 @@
 .movie-card {
   width: 350px;
-  height: 350px;
+  height: 400px;
   margin: 0 15px;
   img {
     object-fit: cover;
     object-position: 70%;
     width: 100%;
-    height: 70%;
+    height: 300px;
   }
   .movie-title {
     color: #fcf7f8;
     font-size: 1.2rem;
-    margin: 4px 0 0 0;
+    margin: 10px 0 0 0;
   }
   .movie-genre {
     font-size: 1rem;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MovieItem.scss';
 
 const MovieItem = ({ movie, genre }) => {
@@ -6,7 +7,7 @@ const MovieItem = ({ movie, genre }) => {
     const genreId = arr.map((id) => {
       const genreName = genre.filter((genreElement) => genreElement.id === id);
       if (genreName[0] === undefined) {
-        console.log('loading');
+        return null;
       } else {
         return genreName[0].name;
       }

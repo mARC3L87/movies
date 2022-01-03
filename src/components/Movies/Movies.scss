@@ -9,10 +9,40 @@ section {
   }
 }
 
-.movies-box {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  transition: ease-in-out 0.4s;
+.movies-container {
+  position: relative;
+  transition: ease-in-out 0.25s;
+  .buttons {
+    display: none;
+  }
+  &:hover {
+    .buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      height: 100%;
+      .btn {
+        z-index: 1;
+        height: 50px;
+        width: 50px;
+        background: #040303;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        i {
+          font-size: 40px;
+          color: #516beb;
+        }
+      }
+    }
+  }
+  .movies-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    transition: ease-in-out 0.4s;
+  }
 }

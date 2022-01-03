@@ -44,21 +44,30 @@ const Movies = () => {
     <section>
       <Link to='/'>Landing</Link>
       <h1>Now Playing</h1>
-      <button onClick={() => prev()}>Prev</button>
-      <button onClick={() => next()}>Next</button>
-      <div
-        className='movies-box'
-        style={{
-          transform: `translateX(-${count * (100 / movies.length)}%`,
-        }}
-      >
-        {movies.map((movie) => {
-          return (
-            <div key={movie.id}>
-              <MovieItem movie={movie} genre={movieGenre} />
-            </div>
-          );
-        })}
+
+      <div className='movies-container'>
+        <div className='buttons'>
+          <button className='btn btn-prev' onClick={() => prev()}>
+            <i className='fas fa-arrow-left'></i>
+          </button>
+          <button className='btn btn-next' onClick={() => next()}>
+            <i className='fas fa-arrow-right'></i>
+          </button>
+        </div>
+        <div
+          className='movies-box'
+          style={{
+            transform: `translateX(-${count * (100 / movies.length)}%`,
+          }}
+        >
+          {movies.map((movie) => {
+            return (
+              <div key={movie.id}>
+                <MovieItem movie={movie} genre={movieGenre} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
