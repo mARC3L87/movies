@@ -5,9 +5,10 @@ const MovieItem = ({ movie, genre }) => {
   const getName = (arr) => {
     const genreId = arr.map((id) => {
       const genreName = genre.filter((genreElement) => genreElement.id === id);
-      return genreName[0].name;
+      //console.log(genreName);
+      return genreName[0];
     });
-    console.log(genreId.join(', '));
+    //console.log(genreId.join(', '));
     return genreId.join(', ');
   };
   return (

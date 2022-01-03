@@ -1,6 +1,8 @@
 section {
   margin: auto;
   max-width: 1900px;
+  overflow: hidden;
+
   h1 {
     font-size: 2rem;
     color: #fcf7f8;
@@ -10,6 +12,7 @@ section {
 .movies-box {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  transition: ease-in-out 0.4s;
 }

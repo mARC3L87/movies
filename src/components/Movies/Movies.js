@@ -11,7 +11,6 @@ const Movies = () => {
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const { results } = res.data;
-      console.log(results);
       setMovies(results);
     };
     const fetchGenre = async () => {
@@ -27,12 +26,32 @@ const Movies = () => {
 
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [count, setCounter] = useState(0);
   const movieGenre = genres.map((genre) => genre);
+  const next = () => {
+    if (count >= 57) {
+      return;
+    }
+    setCounter(count + 4);
+  };
+  const prev = () => {
+    if (count <= 0) {
+      return;
+    }
+    setCounter(count - 4);
+  };
   return (
     <section>
       <Link to='/'>Landing</Link>
       <h1>Now Playing</h1>
-      <div className='movies-box'>
+      <button onClick={() => next()}>Next</button>
+      <button onClick={() => prev()}>Prev</button>
+      <div
+        className='movies-box'
+        style={{
+          transform: `translateX(-${count * (100 / movies.length)}%`,
+        }}
+      >
         {movies.map((movie) => {
           return (
             <div key={movie.id}>
