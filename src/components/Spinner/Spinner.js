@@ -3,8 +3,8 @@ import './Spinner.scss';
 
 const Spinner = () => {
   return (
-    <div>
-      <i className='fa fa-circle-o-notch fa-spin'></i>
+    <div className='spinner'>
+      <i className='fas fa-spinner fa-spin'></i>
     </div>
   );
 };

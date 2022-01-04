@@ -1,3 +1,10 @@
-i {
-  font-size: 24px;
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  i {
+    font-size: 80px;
+    color: #ffffed;
+  }
 }

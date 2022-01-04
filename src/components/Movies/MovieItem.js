@@ -16,11 +16,15 @@ const MovieItem = ({ movie, genre }) => {
   };
   return (
     <div className='movie-card'>
-      <img
-        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-        alt={movie.title}
-      />
-      <p className='movie-title'>{movie.title}</p>
+      <Link to={`/movies/${movie.id}`}>
+        <img
+          src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+          alt={movie.title}
+        />
+      </Link>
+      <Link to={`/movies/${movie.id}`} className='movie-title'>
+        {movie.title}
+      </Link>
       <p className='movie-genre'>{getName(movie.genre_ids)}</p>
     </div>
   );

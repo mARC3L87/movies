@@ -1,0 +1,29 @@
+.background {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img-background {
+    width: 100%;
+    height: 100vh;
+    filter: blur(16px);
+    object-fit: fill;
+  }
+}
+.movie-details-container {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  max-width: 1200px;
+  max-height: 700px;
+  border: 2px solid black;
+  .img-container {
+    height: 600px;
+    width: 450px;
+    .detail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
