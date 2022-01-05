@@ -25,8 +25,13 @@ const MovieDetails = ({ movies }) => {
             alt={movie.title}
           />
         </div>
-        <h1 className='detail-title'>{movie.original_title}</h1>
-        <p className='detail-description'>{movie.overview}</p>
+        <div className='text-container'>
+          <h1 className='detail-title'>{movie.original_title}</h1>
+          <p className='detail-rating'>
+            <i className='far fa-star star'></i> {movie.vote_average}/10
+          </p>
+          <p className='detail-description'>{movie.overview}</p>
+        </div>
       </div>
     </div>
   );
