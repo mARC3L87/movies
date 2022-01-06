@@ -22,20 +22,33 @@ const App = () => {
       const { genres } = res.data;
       setGenres(genres);
     };
+    const fetchHorror = async () => {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=27`
+      );
+      const { results } = res.data;
+      setHorrors(results);
+    };
     fetchedData();
     fetchGenre();
+    fetchHorror();
   }, []);
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [horrors, setHorrors] = useState([]);
+  console.log(horrors);
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route
           path='/movies'
-          element={<Main movies={movies} genres={genres} />}
+          element={<Main movies={movies} genres={genres} horrors={horrors} />}
         />
-        <Route path='/movies/:id' element={<MovieDetails movies={movies} />} />
+        <Route
+          path='/movies/:id'
+          element={<MovieDetails movies={movies} horrors={horrors} />}
+        />
       </Routes>
     </Router>
   );

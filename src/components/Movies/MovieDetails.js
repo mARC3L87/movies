@@ -3,10 +3,14 @@ import { useParams } from 'react-router-dom';
 import './MovieDetails.scss';
 import Spinner from '../Spinner/Spinner';
 
-const MovieDetails = ({ movies }) => {
+const MovieDetails = ({ movies, horrors }) => {
   const { id } = useParams();
-  const movie = movies.find((movie) => movie.id === Number(id));
-  console.log(movie);
+  const results = [...movies, ...horrors];
+  // const movie = movies.filter((movie) => movie.id === Number(id));
+  // const horror = horrors.find((horror) => horror.id === Number(id));
+  // console.log(movie[0]);
+  // console.log(horror);
+  const movie = results.find((result) => result.id === Number(id));
   if (!movie) {
     return <Spinner />;
   }
