@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import './MovieDetails.scss';
 import Spinner from '../Spinner/Spinner';
@@ -39,6 +40,10 @@ const MovieDetails = ({ movies, horrors }) => {
       </div>
     </div>
   );
+};
+MovieDetails.propTypes = {
+  movies: PropTypes.array.isRequired,
+  horrors: PropTypes.array.isRequired,
 };
 
 export default MovieDetails;

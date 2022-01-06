@@ -36,7 +36,6 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [horrors, setHorrors] = useState([]);
-  console.log(horrors);
   return (
     <Router>
       <Routes>

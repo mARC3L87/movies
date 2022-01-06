@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MovieItem from './MovieItem';
 import './Movies.scss';
 
-const Movies = ({ movies, genres }) => {
+const Movies = ({ movies, genres, title }) => {
   const [count, setCounter] = useState(0);
   const movieGenre = genres.map((genre) => genre);
   const next = () => {
@@ -21,7 +22,7 @@ const Movies = ({ movies, genres }) => {
   return (
     <section>
       <Link to='/'>Landing</Link>
-      <h1>Now Playing</h1>
+      <h1>{title}</h1>
 
       <div className='movies-container'>
         <div className='buttons'>
@@ -49,6 +50,14 @@ const Movies = ({ movies, genres }) => {
       </div>
     </section>
   );
+};
+Movies.defaultProps = {
+  title: 'Some movies ...',
+};
+Movies.propTypes = {
+  movies: PropTypes.array.isRequired,
+  genres: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Movies;

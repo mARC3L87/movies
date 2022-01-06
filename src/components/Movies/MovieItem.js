@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './MovieItem.scss';
 
@@ -28,6 +29,10 @@ const MovieItem = ({ movie, genre }) => {
       <p className='movie-genre'>{getName(movie.genre_ids)}</p>
     </div>
   );
+};
+MovieItem.propTypes = {
+  movie: PropTypes.object.isRequired,
+  genre: PropTypes.array.isRequired,
 };
 
 export default MovieItem;
