@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Movies from '../Movies/Movies';
 
-const Main = ({ movies, genres, horrors }) => {
+const Main = ({ movies, genres, horrors, comedies, actions }) => {
   return (
     <div>
+      <Link to='/'>Landing</Link>
       <Movies movies={movies} genres={genres} title={'Now Playing'} />
-      <Movies movies={horrors} genres={genres} title={'Horrors'} />
-      <Movies movies={movies} genres={genres} title={'Comedy'} />
+      <Movies movies={horrors} genres={genres} title={'Horror'} />
+      <Movies movies={comedies} genres={genres} title={'Comedy'} />
+      <Movies movies={actions} genres={genres} title={'Action'} />
     </div>
   );
 };

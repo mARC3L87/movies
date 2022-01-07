@@ -29,24 +29,57 @@ const App = () => {
       const { results } = res.data;
       setHorrors(results);
     };
+    const fetchComedies = async () => {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=35`
+      );
+      const { results } = res.data;
+      setComedies(results);
+    };
+    const fetchActions = async () => {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=28`
+      );
+      const { results } = res.data;
+      setActions(results);
+    };
     fetchedData();
     fetchGenre();
     fetchHorror();
+    fetchComedies();
+    fetchActions();
   }, []);
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [horrors, setHorrors] = useState([]);
+  const [comedies, setComedies] = useState([]);
+  const [actions, setActions] = useState([]);
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route
           path='/movies'
-          element={<Main movies={movies} genres={genres} horrors={horrors} />}
+          element={
+            <Main
+              movies={movies}
+              genres={genres}
+              horrors={horrors}
+              comedies={comedies}
+              actions={actions}
+            />
+          }
         />
         <Route
           path='/movies/:id'
-          element={<MovieDetails movies={movies} horrors={horrors} />}
+          element={
+            <MovieDetails
+              movies={movies}
+              horrors={horrors}
+              comedies={comedies}
+              actions={actions}
+            />
+          }
         />
       </Routes>
     </Router>

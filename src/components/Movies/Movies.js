@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import MovieItem from './MovieItem';
 import './Movies.scss';
 
@@ -21,9 +20,7 @@ const Movies = ({ movies, genres, title }) => {
   };
   return (
     <section>
-      <Link to='/'>Landing</Link>
       <h1>{title}</h1>
-
       <div className='movies-container'>
         <div className='buttons'>
           <button className='btn btn-prev' onClick={() => prev()}>
