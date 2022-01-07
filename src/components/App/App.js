@@ -8,12 +8,12 @@ import axios from 'axios';
 
 const App = () => {
   useEffect(() => {
-    const fetchedData = async () => {
+    const fetchLatest = async () => {
       const res = await axios.get(
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const { results } = res.data;
-      setMovies(results);
+      setLatest(results);
     };
     const fetchGenre = async () => {
       const res = await axios.get(
@@ -43,17 +43,21 @@ const App = () => {
       const { results } = res.data;
       setActions(results);
     };
-    fetchedData();
+    fetchLatest();
     fetchGenre();
     fetchHorror();
     fetchComedies();
     fetchActions();
   }, []);
-  const [movies, setMovies] = useState([]);
+  const [latest, setLatest] = useState([]);
   const [genres, setGenres] = useState([]);
   const [horrors, setHorrors] = useState([]);
   const [comedies, setComedies] = useState([]);
   const [actions, setActions] = useState([]);
+
+  const onSearch = (text) => {
+    console.log(text);
+  };
   return (
     <Router>
       <Routes>
@@ -62,11 +66,12 @@ const App = () => {
           path='/movies'
           element={
             <Main
-              movies={movies}
+              latest={latest}
               genres={genres}
               horrors={horrors}
               comedies={comedies}
               actions={actions}
+              onSearch={onSearch}
             />
           }
         />
@@ -74,7 +79,7 @@ const App = () => {
           path='/movies/:id'
           element={
             <MovieDetails
-              movies={movies}
+              latest={latest}
               horrors={horrors}
               comedies={comedies}
               actions={actions}

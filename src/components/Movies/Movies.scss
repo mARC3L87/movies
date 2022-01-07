@@ -2,6 +2,8 @@ section {
   margin: auto;
   max-width: 1900px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 2rem;
