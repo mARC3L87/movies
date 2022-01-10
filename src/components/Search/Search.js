@@ -16,14 +16,14 @@ const Search = ({ onSearch }) => {
   };
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form className='search-form' onSubmit={onSubmit}>
         <input
           type='text'
           onChange={(e) => setText(e.target.value)}
           value={text}
           placeholder='Search movie...'
         />
-        <input type='submit' value='Submit' />
+        <input type='submit' value='Go' />
       </form>
     </div>
   );

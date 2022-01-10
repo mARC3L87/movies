@@ -9,7 +9,9 @@ const Main = ({ latest, genres, horrors, comedies, actions, onSearch }) => {
   return (
     <div className='main'>
       <Link to='/'>Landing</Link>
-      <Search onSearch={onSearch} />
+      <div className='search-bar'>
+        <Search onSearch={onSearch} />
+      </div>
       <Movies movies={latest} genres={genres} title={'Now Playing'} />
       <Movies movies={horrors} genres={genres} title={'Horror'} />
       <Movies movies={comedies} genres={genres} title={'Comedy'} />

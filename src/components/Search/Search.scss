@@ -1,0 +1,29 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  height: 50px;
+  max-width: 400px;
+  input[type='text'] {
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    &::placeholder {
+      font-size: 20px;
+    }
+  }
+  input[type='submit'] {
+    background: #d80032;
+    color: #fcf7f8;
+    font-size: 20px;
+    border: none;
+    width: 20%;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background: #ef233c;
+    }
+  }
+}
