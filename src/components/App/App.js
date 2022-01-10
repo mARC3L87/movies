@@ -93,7 +93,7 @@ const App = () => {
       />
       <Route
         path='/movies/search'
-        element={<SearchedMovies search={search} />}
+        element={<SearchedMovies search={search} onSearch={onSearch} />}
       />
     </Routes>
   );
