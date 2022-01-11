@@ -19,6 +19,11 @@
     justify-content: space-between;
     .search-item-title {
       color: #fcf7f8;
+      font-size: 1.2em;
+      margin: 19px 0 0 0;
+      &:hover {
+        color: #ffe836;
+      }
     }
     .search-item-release {
       color: #fcf7f8;

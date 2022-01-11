@@ -23,7 +23,12 @@ const SearchItem = ({ element }) => {
             />
           </Link>
           <div className='search-item-description'>
-            <h3 className='search-item-title'>{element.title}</h3>
+            <Link
+              className='search-item-title'
+              to={`/movies/search/${element.id}`}
+            >
+              {element.title}
+            </Link>
             <p className='search-item-release'>
               ({getYear(element.release_date)})
             </p>
