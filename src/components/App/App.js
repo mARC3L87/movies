@@ -88,12 +88,25 @@ const App = () => {
             horrors={horrors}
             comedies={comedies}
             actions={actions}
+            search={search}
           />
         }
       />
       <Route
         path='/movies/search'
         element={<SearchedMovies search={search} onSearch={onSearch} />}
+      />
+      <Route
+        path='/movies/search/:id'
+        element={
+          <MovieDetails
+            search={search}
+            latest={latest}
+            horrors={horrors}
+            comedies={comedies}
+            actions={actions}
+          />
+        }
       />
     </Routes>
   );

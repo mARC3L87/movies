@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import './MovieDetails.scss';
 import Spinner from '../Spinner/Spinner';
 
-const MovieDetails = ({ latest, horrors, comedies, actions }) => {
+const MovieDetails = ({ latest, horrors, comedies, actions, search }) => {
   const { id } = useParams();
-  const results = [...latest, ...horrors, ...comedies, ...actions];
+  const results = [...latest, ...horrors, ...comedies, ...actions, ...search];
   const movie = results.find((result) => result.id === Number(id));
   if (!movie) {
     return <Spinner />;
@@ -42,6 +42,7 @@ MovieDetails.propTypes = {
   horrors: PropTypes.array.isRequired,
   comedies: PropTypes.array.isRequired,
   actions: PropTypes.array.isRequired,
+  search: PropTypes.array.isRequired,
 };
 
 export default MovieDetails;

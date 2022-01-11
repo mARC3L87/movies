@@ -23,6 +23,9 @@ Main.propTypes = {
   latest: PropTypes.array.isRequired,
   genres: PropTypes.array.isRequired,
   horrors: PropTypes.array.isRequired,
+  comedies: PropTypes.array.isRequired,
+  actions: PropTypes.array.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Main;

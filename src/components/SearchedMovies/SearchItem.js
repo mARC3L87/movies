@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './SearchItem.scss';
 
@@ -15,10 +16,12 @@ const SearchItem = ({ element }) => {
     >
       {element.backdrop_path && element.title && element.release_date && (
         <div>
-          <img
-            src={`https://image.tmdb.org/t/p/original/${element.backdrop_path}`}
-            alt={element.title}
-          />
+          <Link to={`/movies/search/${element.id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${element.backdrop_path}`}
+              alt={element.title}
+            />
+          </Link>
           <div className='search-item-description'>
             <h3 className='search-item-title'>{element.title}</h3>
             <p className='search-item-release'>
