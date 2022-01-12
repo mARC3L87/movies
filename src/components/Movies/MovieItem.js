@@ -26,7 +26,7 @@ const MovieItem = ({ movie, genre }) => {
       <Link to={`/movies/${movie.id}`} className='movie-title'>
         {movie.title}
       </Link>
-      <p className='movie-genre'>{getName(movie.genre_ids)}</p>
+      {/* <p className='movie-genre'>{getName(movie.genre_ids)}</p> */}
     </div>
   );
 };

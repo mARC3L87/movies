@@ -9,13 +9,13 @@ import axios from 'axios';
 
 const App = () => {
   useEffect(() => {
-    const fetchLatest = async () => {
-      const res = await axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}`
-      );
-      const { results } = res.data;
-      setLatest(results);
-    };
+    // const fetchLatest = async () => {
+    //   const res = await axios.get(
+    //     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}`
+    //   );
+    //   const { results } = res.data;
+    //   setLatest(results);
+    // };
     const fetchGenre = async () => {
       const res = await axios.get(
         `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
@@ -44,7 +44,7 @@ const App = () => {
       const { results } = res.data;
       setActions(results);
     };
-    fetchLatest();
+    // fetchLatest();
     fetchGenre();
     fetchHorror();
     fetchComedies();
@@ -67,19 +67,7 @@ const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Landing />} />
-      <Route
-        path='/movies'
-        element={
-          <Main
-            latest={latest}
-            genres={genres}
-            horrors={horrors}
-            comedies={comedies}
-            actions={actions}
-            onSearch={onSearch}
-          />
-        }
-      />
+      <Route path='/movies' element={<Main />} />
       <Route
         path='/movies/:id'
         element={

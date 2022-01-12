@@ -12,8 +12,10 @@ const SearchedMovies = ({ search, onSearch }) => {
   }
   return (
     <div>
-      <Search onSearch={onSearch} />
-      <div className='searched-container'>
+      <div className='searched-bar'>
+        <Search onSearch={onSearch} />
+      </div>
+      <div className='searched-box'>
         {search.map((element) => {
           return (
             <div key={element.id}>
