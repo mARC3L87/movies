@@ -36,18 +36,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Landing />} />
       <Route path='/movies' element={<Main />} />
-      <Route
-        path='/movies/:id'
-        element={
-          <MovieDetails
-            latest={latest}
-            horrors={horrors}
-            comedies={comedies}
-            actions={actions}
-            search={search}
-          />
-        }
-      />
+      <Route path='/movies/:id' element={<MovieDetails />} />
       <Route
         path='/movies/search'
         element={<SearchedMovies search={search} onSearch={onSearch} />}

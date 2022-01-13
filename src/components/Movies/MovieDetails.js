@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import './MovieDetails.scss';
 import Spinner from '../Spinner/Spinner';
 // latest, horrors, comedies, actions, search
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ movies: { latest, horrors, comedies, actions } }) => {
   const { id } = useParams();
-  console.log(movie);
-  // const results = [...latest, ...horrors, ...comedies, ...actions, ...search];
-  // const movie = results.find((result) => result.id === Number(id));
+  console.log(latest, horrors, actions, comedies);
+  const results = [...latest, ...horrors, ...comedies, ...actions];
+  const movie = results.find((result) => result.id === Number(id));
   if (!movie) {
     return <Spinner />;
   }
@@ -47,8 +47,8 @@ MovieDetails.propTypes = {
   search: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  movie: state.movies,
+const mapStateToProps = (state) => ({
+  movies: state.movies,
 });
 
 export default connect(mapStateToProps, {})(MovieDetails);
