@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchLatest } from '../../redux/actions/moviesActions';
+import {
+  fetchLatest,
+  fetchHorror,
+  fetchComedies,
+  fetchActions,
+} from '../../redux/actions/moviesActions';
 import PropTypes from 'prop-types';
 import Movies from '../Movies/Movies';
 import Search from '../Search/Search';
@@ -21,33 +26,45 @@ import './Main.scss';
 //     </div>
 //   );
 // };
-const Main = ({ movies: { latest }, fetchLatest }) => {
+const Main = ({
+  movies: { latest, horrors, comedies, actions },
+  fetchLatest,
+  fetchHorror,
+  fetchComedies,
+  fetchActions,
+}) => {
   useEffect(() => {
-    console.log(fetchLatest());
-    // console.log(latest);
+    fetchLatest();
+    fetchHorror();
+    fetchComedies();
+    fetchActions();
   }, []);
   return (
     <div className='main'>
       <Link to='/'>Landing</Link>
       <div className='search-bar'>{/* <Search onSearch={onSearch} /> */}</div>
-      <Movies movies={latest} />
-      {/* <Movies movies={horrors} genres={genres} title={'Horror'} />
-      <Movies movies={comedies} genres={genres} title={'Comedy'} />
-      <Movies movies={actions} genres={genres} title={'Action'} /> */}
+      <Movies movies={latest} title={'Now Playing'} />
+      <Movies movies={horrors} title={'Horror'} />
+      <Movies movies={comedies} title={'Comedy'} />
+      <Movies movies={actions} title={'Action'} />
     </div>
   );
 };
 Main.propTypes = {
-  latest: PropTypes.array.isRequired,
-  genres: PropTypes.array.isRequired,
-  horrors: PropTypes.array.isRequired,
-  comedies: PropTypes.array.isRequired,
-  actions: PropTypes.array.isRequired,
-  onSearch: PropTypes.func.isRequired,
+  movies: PropTypes.object.isRequired,
+  fetchLatest: PropTypes.func.isRequired,
+  fetchHorror: PropTypes.func.isRequired,
+  fetchComedies: PropTypes.func.isRequired,
+  fetchActions: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
 });
 
-export default connect(mapStateToProps, { fetchLatest })(Main);
+export default connect(mapStateToProps, {
+  fetchLatest,
+  fetchHorror,
+  fetchComedies,
+  fetchActions,
+})(Main);

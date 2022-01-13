@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './MovieDetails.scss';
 import Spinner from '../Spinner/Spinner';
-
-const MovieDetails = ({ latest, horrors, comedies, actions, search }) => {
+// latest, horrors, comedies, actions, search
+const MovieDetails = ({ movie }) => {
   const { id } = useParams();
-  const results = [...latest, ...horrors, ...comedies, ...actions, ...search];
-  const movie = results.find((result) => result.id === Number(id));
+  console.log(movie);
+  // const results = [...latest, ...horrors, ...comedies, ...actions, ...search];
+  // const movie = results.find((result) => result.id === Number(id));
   if (!movie) {
     return <Spinner />;
   }
@@ -45,4 +47,8 @@ MovieDetails.propTypes = {
   search: PropTypes.array.isRequired,
 };
 
-export default MovieDetails;
+const mapStateToProps = (state, ownProps) => ({
+  movie: state.movies,
+});
+
+export default connect(mapStateToProps, {})(MovieDetails);
