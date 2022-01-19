@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SearchItem from './SearchItem';
 import Spinner from '../Spinner/Spinner';
+import { onSearch } from '../../redux/actions/searchActions';
 import Search from '../Search/Search';
 import './SearchedMovies.scss';
 
@@ -32,4 +34,8 @@ SearchedMovies.propTypes = {
   search: PropTypes.array.isRequired,
 };
 
-export default SearchedMovies;
+const mapStateToProps = (state) => ({
+  search: state.search.search,
+});
+
+export default connect(mapStateToProps, { onSearch })(SearchedMovies);

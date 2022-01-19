@@ -4,11 +4,13 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './MovieDetails.scss';
 import Spinner from '../Spinner/Spinner';
-// latest, horrors, comedies, actions, search
-const MovieDetails = ({ movies: { latest, horrors, comedies, actions } }) => {
+
+const MovieDetails = ({
+  movies: { latest, horrors, comedies, actions },
+  search,
+}) => {
   const { id } = useParams();
-  console.log(latest, horrors, actions, comedies);
-  const results = [...latest, ...horrors, ...comedies, ...actions];
+  const results = [...latest, ...horrors, ...comedies, ...actions, ...search];
   const movie = results.find((result) => result.id === Number(id));
   if (!movie) {
     return <Spinner />;
@@ -49,6 +51,7 @@ MovieDetails.propTypes = {
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
+  search: state.search.search,
 });
 
 export default connect(mapStateToProps, {})(MovieDetails);

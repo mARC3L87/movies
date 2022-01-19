@@ -12,20 +12,6 @@ import Movies from '../Movies/Movies';
 import Search from '../Search/Search';
 import './Main.scss';
 
-// const Main = ({ latest, genres, horrors, comedies, actions, onSearch }) => {
-//   return (
-//     <div className='main'>
-//       <Link to='/'>Landing</Link>
-//       <div className='search-bar'>
-//         <Search onSearch={onSearch} />
-//       </div>
-//       <Movies movies={latest} genres={genres} title={'Now Playing'} />
-//       <Movies movies={horrors} genres={genres} title={'Horror'} />
-//       <Movies movies={comedies} genres={genres} title={'Comedy'} />
-//       <Movies movies={actions} genres={genres} title={'Action'} />
-//     </div>
-//   );
-// };
 const Main = ({
   movies: { latest, horrors, comedies, actions },
   fetchLatest,
@@ -42,7 +28,9 @@ const Main = ({
   return (
     <div className='main'>
       <Link to='/'>Landing</Link>
-      <div className='search-bar'>{/* <Search onSearch={onSearch} /> */}</div>
+      <div className='search-bar'>
+        <Search />
+      </div>
       <Movies movies={latest} title={'Now Playing'} />
       <Movies movies={horrors} title={'Horror'} />
       <Movies movies={comedies} title={'Comedy'} />

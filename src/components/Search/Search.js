@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { onSearch } from '../../redux/actions/searchActions';
 import './Search.scss';
 
 const Search = ({ onSearch }) => {
@@ -29,4 +31,4 @@ const Search = ({ onSearch }) => {
   );
 };
 
-export default Search;
+export default connect(null, { onSearch })(Search);
