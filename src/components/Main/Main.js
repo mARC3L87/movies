@@ -7,6 +7,7 @@ import {
   fetchComedies,
   fetchActions,
 } from '../../redux/actions/moviesActions';
+import { fetchGenre } from '../../redux/actions/genresActions';
 import PropTypes from 'prop-types';
 import Movies from '../Movies/Movies';
 import Search from '../Search/Search';
@@ -18,12 +19,14 @@ const Main = ({
   fetchHorror,
   fetchComedies,
   fetchActions,
+  fetchGenre,
 }) => {
   useEffect(() => {
     fetchLatest();
     fetchHorror();
     fetchComedies();
     fetchActions();
+    fetchGenre();
   }, []);
   return (
     <div className='main'>
@@ -55,4 +58,5 @@ export default connect(mapStateToProps, {
   fetchHorror,
   fetchComedies,
   fetchActions,
+  fetchGenre,
 })(Main);

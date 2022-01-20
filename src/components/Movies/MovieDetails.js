@@ -42,10 +42,7 @@ const MovieDetails = ({
   );
 };
 MovieDetails.propTypes = {
-  latest: PropTypes.array.isRequired,
-  horrors: PropTypes.array.isRequired,
-  comedies: PropTypes.array.isRequired,
-  actions: PropTypes.array.isRequired,
+  movies: PropTypes.object.isRequired,
   search: PropTypes.array.isRequired,
 };
 

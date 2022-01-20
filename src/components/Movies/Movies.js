@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import MovieItem from './MovieItem';
 import './Movies.scss';
 
-const Movies = ({ movies, genres, title }) => {
+const Movies = ({ movies, title }) => {
   const [count, setCounter] = useState(0);
-  // const movieGenre = genres.map((genre) => genre);
   const next = () => {
     if (count >= 57) {
       return;
@@ -39,7 +38,6 @@ const Movies = ({ movies, genres, title }) => {
           {movies.map((movie) => {
             return (
               <div key={movie.id}>
-                {/* <MovieItem movie={movie} genre={movieGenre} /> */}
                 <MovieItem movie={movie} />
               </div>
             );

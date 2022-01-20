@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './MovieItem.scss';
 
-const MovieItem = ({ movie, genre }) => {
+const MovieItem = ({ movie, genres }) => {
   const getName = (arr) => {
     const genreId = arr.map((id) => {
-      const genreName = genre.filter((genreElement) => genreElement.id === id);
+      const genreName = genres.filter((genre) => genre.id === id);
       if (genreName[0] === undefined) {
         return null;
       } else {
@@ -26,7 +27,7 @@ const MovieItem = ({ movie, genre }) => {
       <Link to={`/movies/${movie.id}`} className='movie-title'>
         {movie.title}
       </Link>
-      {/* <p className='movie-genre'>{getName(movie.genre_ids)}</p> */}
+      <p className='movie-genre'>{getName(movie.genre_ids)}</p>
     </div>
   );
 };
@@ -35,4 +36,8 @@ MovieItem.propTypes = {
   genre: PropTypes.array.isRequired,
 };
 
-export default MovieItem;
+const mapStateToProps = (state) => ({
+  genres: state.genres.genres,
+});
+
+export default connect(mapStateToProps, null)(MovieItem);
