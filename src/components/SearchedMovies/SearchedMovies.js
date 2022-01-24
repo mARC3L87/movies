@@ -8,7 +8,6 @@ import Search from '../Search/Search';
 import './SearchedMovies.scss';
 
 const SearchedMovies = ({ search, onSearch }) => {
-  console.log(search);
   if (!search || search.length === 0) {
     return <Spinner />;
   }

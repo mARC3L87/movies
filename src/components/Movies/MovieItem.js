@@ -33,7 +33,7 @@ const MovieItem = ({ movie, genres }) => {
 };
 MovieItem.propTypes = {
   movie: PropTypes.object.isRequired,
-  genre: PropTypes.array.isRequired,
+  genres: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({

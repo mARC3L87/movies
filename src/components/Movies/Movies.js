@@ -52,7 +52,6 @@ Movies.defaultProps = {
 };
 Movies.propTypes = {
   movies: PropTypes.array.isRequired,
-  genres: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 };
 

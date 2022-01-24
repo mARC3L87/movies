@@ -27,7 +27,7 @@ const Main = ({
     fetchComedies();
     fetchActions();
     fetchGenre();
-  }, []);
+  }, [fetchActions, fetchComedies, fetchGenre, fetchHorror, fetchLatest]);
   return (
     <div className='main'>
       <Link to='/'>Landing</Link>
