@@ -1,52 +1,83 @@
-section {
-  margin: auto;
-  max-width: 1900px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-
-  h1 {
-    font-size: 2rem;
-    color: #fcf7f8;
+:root {
+  .swiper-button-next {
+    background-image: url('../../svg/right-chevron-svgrepo-com.svg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    background-color: rgba(12, 211, 22, 0.6);
+    height: 100px;
+    width: 50px;
+    transform: translateY(-50%);
+    &::after {
+      display: none;
+    }
   }
-}
-
-.movies-container {
-  position: relative;
-  .buttons {
+  .swiper-button-prev {
+    background-image: url('../../svg/right-chevron-svgrepo-com.svg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    background-color: rgba(12, 211, 22, 0.6);
+    height: 100px;
+    width: 50px;
+    transform: rotate(180deg) translateY(50%);
+    &::after {
+      display: none;
+    }
+  }
+  .swiper-button-disabled {
     display: none;
   }
-  &:hover {
+  section {
+    margin: auto;
+    max-width: 1900px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2rem;
+      color: #fcf7f8;
+    }
+  }
+
+  .movies-container {
+    position: relative;
     .buttons {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-      position: absolute;
-      height: 100%;
-      .btn {
-        z-index: 1;
-        height: 50px;
-        width: 50px;
-        background: #040303;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        i {
-          font-size: 40px;
-          color: #516beb;
-          &:hover {
-            color: #b8b5ff;
+      display: none;
+    }
+    &:hover {
+      .buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        height: 100%;
+        z-index: 10;
+        .btn {
+          height: 50px;
+          width: 50px;
+          background: #040303;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          i {
+            font-size: 40px;
+            color: #516beb;
+            &:hover {
+              color: #b8b5ff;
+            }
           }
         }
       }
     }
-  }
-  .movies-box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    transition: ease-in-out 0.4s;
+    .movies-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      transition: ease-in-out 0.4s;
+    }
   }
 }
