@@ -11,35 +11,10 @@ import 'swiper/modules/navigation/navigation.scss';
 
 const Movies = ({ movies, title }) => {
   SwiperCore.use([FreeMode, Navigation]);
-  const [count, setCounter] = useState(0);
-  // const windowWidth = window.innerWidth;
-  // console.log(count);
-  // console.log(movies.length);
-  // console.log(windowWidth);
-  const next = () => {
-    if (count >= 57) {
-      return;
-    }
-    setCounter(count + 4);
-  };
-  const prev = () => {
-    if (count <= 0) {
-      return;
-    }
-    setCounter(count - 4);
-  };
   return (
     <section>
       <h1>{title}</h1>
       <div className='movies-container'>
-        {/* <div className='buttons'>
-          <button className='btn btn-prev' onClick={() => prev()}>
-            <i className='fas fa-arrow-left'></i>
-          </button>
-          <button className='btn btn-next' onClick={() => next()}>
-            <i className='fas fa-arrow-right'></i>
-          </button>
-        </div> */}
         <Swiper
           slidesPerView={5}
           spaceBetween={10}
@@ -49,19 +24,9 @@ const Movies = ({ movies, title }) => {
               slidesPerView: 1,
               spaceBetween: 60,
             },
-            576: {
-              width: 576,
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
             768: {
               width: 768,
               slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            992: {
-              width: 992,
-              slidesPerView: 3,
               spaceBetween: 10,
             },
             1200: {
@@ -72,18 +37,13 @@ const Movies = ({ movies, title }) => {
             1800: {
               width: 1800,
               slidesPerView: 5,
-              spaceBetween: 20,
+              spaceBetween: 15,
             },
           }}
           navigation={true}
           freeMode={true}
         >
-          <div
-            className='movies-box'
-            style={{
-              transform: `translateX(-${count * (100 / movies.length)}%`,
-            }}
-          >
+          <div className='movies-box'>
             {movies.map((movie) => {
               return (
                 <SwiperSlide key={movie.id}>

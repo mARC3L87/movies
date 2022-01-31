@@ -81,3 +81,17 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  :root {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+    section {
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}
